@@ -1,17 +1,18 @@
 import React from 'react';
 import { Smartphone, ArrowRight, Instagram, Linkedin, Phone, MessageCircle, MoreVertical } from 'lucide-react';
 import { useLinks } from '../../context/LinkContext';
+import Logo from '../../assets/inspler-logo.png';
 
 export function PhonePreview() {
     const { profile, links } = useLinks();
     const visibleLinks = links.filter(l => l.visible);
 
     return (
-        <div className="hidden lg:flex flex-col items-center bg-white rounded-[2rem] border border-gray-100 shadow-sm p-6 sticky top-6 h-fit min-w-[320px]">
-            <div className="w-full flex justify-between items-center mb-6">
+        <div className="flex flex-col items-center bg-white rounded-[2rem] border border-gray-100 shadow-sm p-4 xl:p-6 sticky top-6 h-fit min-w-[320px] lg:flex hover:shadow-lg transition-shadow duration-500">
+            <div className=" w-full flex justify-between items-center mb-6">
                 <h2 className="text-xl font-bold text-gray-800">Preview</h2>
-                <button className="flex items-center gap-1 text-primary text-sm font-semibold hover:underline">
-                    customize Url <ArrowRight size={14} />
+                <button className="flex items-center gap-1 text-primary text-sm font-semibold hover:text-indigo-700 transition-colors duration-300 group">
+                    customize Url <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform duration-300" />
                 </button>
             </div>
 
@@ -26,18 +27,14 @@ export function PhonePreview() {
                     {/* Background Gradient */}
                     <div className="absolute inset-0 bg-gradient-to-b from-[#EF1239] via-[#FF4D22] to-[#FFB72D] h-full w-full -z-10"></div>
 
-                    <div className="px-5 pt-16 relative flex flex-col items-center text-center z-10 min-h-full pb-10">
+                    <div className="bg-gradient-to-b from-[#FF1E1E] via-[#FF3B1F] to-[#FF9A3C]
+ px-5 pt-16 relative flex flex-col items-center text-center z-10 min-h-full pb-10">
                         {/* Profile Image with subtle glow */}
-                        <div className="w-24 h-24 rounded-full border-[4px] border-white/20 bg-[#2E3192] mb-4 shadow-2xl overflow-hidden relative group cursor-pointer shrink-0">
+                        <div className="w-24 h-24 rounded-full border-[4px] border-white/20 bg-white mb-4 shadow-2xl overflow-hidden relative group cursor-pointer shrink-0">
                             {profile.avatar ? (
                                 <img src={profile.avatar} alt="Profile" className="w-full h-full object-cover" />
                             ) : (
-                                <div className="absolute inset-0 flex flex-col items-center justify-center text-white bg-gradient-to-tr from-[#1e1b4b] to-[#4338ca]">
-                                    <div className="flex items-center gap-1">
-                                        <span className="text-xl drop-shadow-md">🐝</span>
-                                        <span className="text-base font-bold tracking-wider text-white drop-shadow-sm lowercase">inspler</span>
-                                    </div>
-                                </div>
+                                <img src={Logo} alt="Inspler" className="w-full h-full object-contain p-2" />
                             )}
                         </div>
                         <h3 className="font-bold text-2xl text-white leading-tight tracking-wide drop-shadow-md">{profile.name}</h3>

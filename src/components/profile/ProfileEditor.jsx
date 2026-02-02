@@ -2,6 +2,8 @@ import React from 'react';
 import { useLinks } from '../../context/LinkContext';
 import { Share2, Plus, Copy, ExternalLink, Bell, Search, ChevronDown, Send, Instagram, Linkedin, Link as LinkIcon } from 'lucide-react';
 
+import Logo from '../../assets/inspler-logo.png';
+
 export function ProfileEditor() {
     const { profile, setProfile } = useLinks();
 
@@ -37,14 +39,11 @@ export function ProfileEditor() {
                                 }
                             }}
                         />
-                        <div className="w-full h-full rounded-full bg-gradient-to-br from-[#1e1b4b] to-[#4338ca] flex items-center justify-center text-white relative overflow-hidden">
+                        <div className="w-full h-full rounded-full bg-white flex items-center justify-center relative overflow-hidden">
                             {profile.avatar ? (
                                 <img src={profile.avatar} alt="Profile" className="w-full h-full object-cover" />
                             ) : (
-                                <div className="flex flex-col items-center justify-center leading-none">
-                                    <span className="text-3xl lg:text-xl xl:text-3xl mb-1 drop-shadow-md">🐝</span>
-                                    <span className="text-[10px] lg:text-[8px] xl:text-[10px] font-bold tracking-[0.2em] uppercase opacity-90">INSPLER</span>
-                                </div>
+                                <img src={Logo} alt="Inspler" className="w-full h-full object-contain p-2" />
                             )}
                         </div>
                     </div>
@@ -63,7 +62,7 @@ export function ProfileEditor() {
                                 <Linkedin size={16} strokeWidth={0} fill="currentColor" className="lg:w-3.5 lg:h-3.5 xl:w-4 xl:h-4" />
                             </button>
                             <button className="w-8 h-8 lg:w-7 lg:h-7 xl:w-8 xl:h-8 rounded-full border border-dashed border-gray-300 text-gray-400 flex items-center justify-center hover:border-gray-500 hover:text-gray-600 transition-colors">
-                                <Plus size={18} className="lg:w-4 lg:h-4 xl:w-[18px]" />
+                                <Plus size={18} className="lg:w-4 lg:h-4 xl:w-5 xl:h-5" />
                             </button>
                         </div>
                     </div>
@@ -126,7 +125,7 @@ export function ProfileEditor() {
                                     {profile.avatar ? (
                                         <img src={profile.avatar} alt="Profile" className="w-full h-full object-cover" />
                                     ) : (
-                                        <span className="text-2xl">🐝</span>
+                                        <img src={Logo} alt="Inspler" className="w-full h-full object-contain p-1.5" />
                                     )}
                                 </div>
                             </div>

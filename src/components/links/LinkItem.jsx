@@ -28,14 +28,14 @@ export function LinkItem({ link }) {
         <div
             ref={setNodeRef}
             style={style}
-            className="bg-white rounded-3xl p-4 md:p-5 mb-4 border border-gray-100 shadow-[0_2px_8px_rgba(0,0,0,0.02)] group hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] transition-all"
+            className="bg-white rounded-3xl p-4 md:p-5 mb-4 border border-gray-100 shadow-[0_2px_8px_rgba(0,0,0,0.02)] group hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] hover:-translate-y-[2px] transition-all duration-300 ease-out"
         >
             <div className="flex items-center gap-2 md:gap-4">
                 {/* Drag Handle */}
                 <button
                     {...attributes}
                     {...listeners}
-                    className="self-center text-gray-300 hover:text-gray-500 cursor-grab active:cursor-grabbing touch-none p-2 -ml-2 shrink-0"
+                    className="self-center text-gray-300 hover:text-indigo-500 hover:bg-indigo-50 rounded-lg transition-all duration-200 cursor-grab active:cursor-grabbing touch-none p-2 -ml-2 shrink-0 active:scale-95"
                 >
                     <div className="grid grid-cols-2 gap-[2px] w-[14px]">
                         <div className="w-[3px] h-[3px] rounded-full bg-current"></div>
@@ -51,8 +51,8 @@ export function LinkItem({ link }) {
                 <div className="flex-1 min-w-0 space-y-4 py-1">
                     {/* Label Input */}
                     <div className="flex items-center gap-3">
-                        <div className="flex-1 flex items-center gap-2 md:gap-3 bg-white border border-gray-200 rounded-full px-3 md:px-4 py-2.5 focus-within:border-indigo-300 focus-within:ring-2 focus-within:ring-indigo-100 transition-all shadow-sm">
-                            <Pencil size={14} className="text-gray-400 shrink-0" />
+                        <div className="flex-1 flex items-center gap-2 md:gap-3 bg-white border border-gray-200 rounded-full px-3 md:px-4 py-2.5 focus-within:border-indigo-400 focus-within:ring-4 focus-within:ring-indigo-100/50 transition-all duration-300 ease-out shadow-sm hover:border-gray-300">
+                            <Pencil size={14} className="text-gray-400 shrink-0 transition-colors group-focus-within:text-indigo-500" />
                             <input
                                 type="text"
                                 value={link.label}
@@ -60,7 +60,7 @@ export function LinkItem({ link }) {
                                 onChange={(e) => updateLink(link.id, { label: e.target.value })}
                                 className="flex-1 w-full text-sm font-semibold text-gray-700 placeholder:text-gray-300 outline-none bg-transparent min-w-0"
                             />
-                            <div className="text-gray-300 cursor-pointer hover:text-gray-500 shrink-0">
+                            <div className="text-gray-300 cursor-pointer hover:text-indigo-500 hover:scale-110 transition-all duration-200 shrink-0">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><path d="M8 14s1.5 2 4 2 4-2 4-2" /><line x1="9" y1="9" x2="9.01" y2="9" /><line x1="15" y1="9" x2="15.01" y2="9" /></svg>
                             </div>
                         </div>
@@ -68,7 +68,7 @@ export function LinkItem({ link }) {
 
                     {/* URL Input */}
                     <div className="flex items-center gap-3">
-                        <div className="flex-1 flex items-center gap-2 md:gap-3 bg-white border border-gray-200 rounded-full px-3 md:px-4 py-2.5 focus-within:border-indigo-300 focus-within:ring-2 focus-within:ring-indigo-100 transition-all shadow-sm">
+                        <div className="flex-1 flex items-center gap-2 md:gap-3 bg-white border border-gray-200 rounded-full px-3 md:px-4 py-2.5 focus-within:border-indigo-400 focus-within:ring-4 focus-within:ring-indigo-100/50 transition-all duration-300 ease-out shadow-sm hover:border-gray-300">
                             <LinkIcon size={14} className="text-gray-400 shrink-0" />
                             <input
                                 type="text"
